@@ -81,7 +81,7 @@ export default class FormComponent extends Component {
   render() {
     return (
       <div className="container" style={{marginTop: '20vh'}}>
-        <h1 className="text-center">Money Fraction</h1>
+        <h1 className="text-center">Rupiah Fraction</h1>
         <form className="form-inline justify-content-center" onSubmit={this.handleSubmit}>
             <div className="form-group mb-2">
                 <label className="sr-only">Email</label>
