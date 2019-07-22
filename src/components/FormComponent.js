@@ -45,20 +45,46 @@ export default class FormComponent extends Component {
     this.setState({money: e.target.value, arrRe: []});
   }
 
+  seethetruth(input){
+    let result = true;
+    let firstd = input.match(/\d/);
+    let indexfd = input.indexOf(firstd);
+    let lastd = input.match(/\d+(?=\D*$)/);
+    let indexld = lastd.index + lastd[0].length;
+    let newstring = input.slice(indexfd, indexld);
+    result = this.checkifspace(newstring);
+
+    return result
+  }
+  
+  checkifspace(astring) {
+    if (/\s/.test(astring)) {
+      return false
+    }
+    return true
+  }
+
   handleSubmit(e) {
     e.preventDefault(); 
     let { money } = this.state;
     let inputMoney;
-    if( money.indexOf(',') > -1) {
-      let replaceCommmas = money.substr(0, money.lastIndexOf(","));
-      inputMoney = replaceCommmas.replace(/[^0-9]/g,'');
+    let arrSolution;
+    if(this.seethetruth(money)) {
+      if( money.indexOf(',') > -1) {
+        let replaceCommmas = money.substr(0, money.lastIndexOf(","));
+        inputMoney = replaceCommmas.replace(/[^0-9]/g,'');
+      } else {
+        inputMoney = money.replace(/[^0-9]/g,'');
+      }
+      arrSolution = this.solution(inputMoney);
+      this.setState(prevState => ({
+        arrRe: arrSolution
+      }))
     } else {
-      inputMoney = money.replace(/[^0-9]/g,'');
+      this.setState(prevState => ({
+        arrRe: ['IS']
+      }))
     }
-    let arrSolution = this.solution(inputMoney);
-    this.setState(prevState => ({
-      arrRe: arrSolution
-    }))
     this.setState({
       money: ''
     })
@@ -66,15 +92,21 @@ export default class FormComponent extends Component {
 
   renderObject(){
     let counts = {};
-    this.state.arrRe.forEach(function(i) {
-      counts[i] = (counts[i] || 0) + 1 ;
-    })
-    
-    return Object.entries(counts).reverse().map(([key, value], i) => {
-			return (
-				<li key={i}>{value} x Rp{key}</li>
-			)
-		})
+    if(this.state.arrRe.includes("IS")) {
+      return (
+        <p>Invalid Separator</p>
+      )
+    } else {
+      this.state.arrRe.forEach(function(i) {
+        counts[i] = (counts[i] || 0) + 1 ;
+      })
+      
+      return Object.entries(counts).reverse().map(([key, value], i) => {
+        return (
+          <li key={i}>{value} x Rp{key}</li>
+        )
+      })
+    }
 	}
 
 
