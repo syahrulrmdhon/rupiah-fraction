@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/rupiah-fraction/precache-manifest.077b251f3045686ae850400586c91102.js"
+  "/rupiah-fraction/precache-manifest.ab7b3b96750aaf256739ffdd53e3cc45.js"
 );
 
 self.addEventListener('message', (event) => {

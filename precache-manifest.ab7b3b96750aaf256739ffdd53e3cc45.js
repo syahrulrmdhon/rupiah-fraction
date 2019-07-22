@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "511ba4b4512f597bfdfb6875ccb7695c",
+    "revision": "5a2245f03ec58a47a6f0014db8c8b650",
     "url": "/rupiah-fraction/index.html"
   },
   {
-    "revision": "dd1cef3319667a103a3f",
+    "revision": "97596e570134653a3cc2",
     "url": "/rupiah-fraction/static/css/main.cfda8877.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/rupiah-fraction/static/js/2.4ae0c7af.chunk.js"
   },
   {
-    "revision": "dd1cef3319667a103a3f",
-    "url": "/rupiah-fraction/static/js/main.f91fcf08.chunk.js"
+    "revision": "97596e570134653a3cc2",
+    "url": "/rupiah-fraction/static/js/main.0a570a3f.chunk.js"
   },
   {
     "revision": "ba6dd423fa442d612d4b",
